@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Haven</title>
+    <link rel="stylesheet" href="styles.css">
+   
+    
+</head>
+
+<body>
+    <div class="cat-container">
+        <img src="cat.gif" alt="Cat" class="cat" id="animated-cat">
+        
+    </div>
+    <header>    
+            <div class="container">
+            <div class="logo">
+                <h1>🐾 Pet Haven 🐾</h1>
+            </div>
+         
+<div class="account">
+    <button class="cart" onclick="toggleCart()">
+        <img src="logocat.gif" alt="Cart" class="cart-icon">
+        (<span id="cart-count">0</span>)
+    </button>
+</div>
+
+
+<div id="cart-card" class="cart-card">
+    <button class="cart-close-btn" onclick="closeCart()">X</button> 
+    <h3>Your Cart</h3>
+    <div id="cart-items-list">
+      
+    </div>
+    <p>Total: $<span id="cart-total">0</span></p>
+    <button id="checkout-btn">Checkout</button>
+</div>
+<body style="background-color:#cfb997;">
+            <div class="music-card">
+                <button id="music-button">
+                    <img src="music-icon.png" alt="Music Icon">
+                </button>
+                <div id="music-floating-card" class="hidden">
+                    <div class="music-header">
+                        <h3>Search Music</h3>
+                        <button id="close-music-card" class="close-btn">✖</button>
+                    </div>
+                    <input type="text" id="search-input" placeholder="Search for a song...">
+                    <ul id="search-results">
+                        <!-- Dynamic results will appear here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="music-card" id="music-card">
+                <button id="toggle-music-card" class="music-toggle-btn">🎵</button>
+                <div class="floating-music-card" id="floating-music-card">
+                    <h2>Search Songs</h2>
+                    <input type="text" id="search-bar" placeholder="Search for a song...">
+                    <ul id="song-list"></ul>
+                    <div class="music-controls">
+                        <button id="play-button">▶️ Play</button>
+                        <button id="pause-button">⏸ Pause</button>
+                        <button id="stop-button">⏹ Stop</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="cart-modal">
+                <div class="cart-header">
+                    <h2>Your Cart</h2>
+                    <button id="close-cart" class="exit-btn">✖</button>
+                </div>
+                <div class="cart-items">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="cart-total">
+                    <p>Total: $<span id="total-price">0.00</span></p>
+                </div>
+                <div class="cart-actions">
+                    <button id="checkout-btn" class="checkout-btn">Checkout</button>
+                </div>
+            </div>
+            
+</div>               
+<div class="product-details-card">
+    <button id="close-details">✖</button>
+    <h2 id="detail-name"></h2>
+    <p id="detail-description"></p>
+    <p id="detail-price"></p>
+    <img id="detail-image" src="" alt="Product Image">
+    <button id="add-to-cart-btn">Add to Cart</button>
+</div>
+
+<!-- Floating options card -->
+<div class="product-options-card">
+    <h3>Select Options</h3>
+    <label for="product-size">Size:</label>
+    <select id="product-size">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+    </select>
+
+    <label for="product-color">Color:</label>
+    <select id="product-color">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+
+    <label for="product-quantity">Quantity:</label>
+    <input type="number" id="product-quantity" value="1" min="1">
+
+    <button id="confirm-add-to-cart">Confirm</button>
+    <button id="close-options">✖</button>
+</div>
+
+<!-- Overlay to dim the background -->
+<div class="overlay" style="display: none;"></div>
+
+            
+            
+        </header>
+        <section class="hero">
+            <div class="carousel">
+                 <div class="carousel-item active">
+                    <img src="logo.jpg" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="logo2.jpg" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="logo3.jpg" alt="Slide 3">
+                </div>
+            </div>
+            <div class="navigation-dots">
+                <span class="dot active-dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+    
+    
+
+    <section class="trending">
+        <h2>Trending Now</h2>
+        <section class="products">
+            <div class="product-card" data-name="catAutomataMachine" data-description="A very cool versatile Feeder Machine for
+            Cats" data-price="$20" data-image="catAutomataMachine.webp">
+            
+                <img src="catAutomataMachine.webp" alt="Cat" class="product-png">
+                <p>AutoMataMachine</p>
+            </div>
+            <div class="product-card" data-name="Alpho Mac" data-description="A Very delicuos treat!." data-price="$30" data-image="Food1.png">
+                <img src="Food1.png" alt="Alpho Mac" class="Food1">
+                <p>Alpo MAc</p>
+            </div>
+            <div class="product-card" data-name="Pedigree" data-description="Full of Vitamins and Minerals!" data-price="$25" data-image="Food2.png">
+                <img src="Food2.png" alt="Pedigree">
+                <p>Pedigree</p>
+            </div>
+            <div class="product-card" data-name="Himalaya" data-description="A very Healthy TREAT!" data-price="$28" data-image="Food3.png">
+                <img src="Food3.png" alt="Himalaya">
+                <p>Himalaya</p>
+            </div>
+            <div class="product-card" data-name="Squeak" data-description="A squeaky squirrel!" data-price="$35" data-image="Toy1.png">
+                <img src="Toy1.png" alt="Squake">   
+                <p>Squeak</p>
+            </div>
+            <div class="product-card" data-name="Bally" data-description="A Bouncy ball for the entertainment!" data-price="$40" data-image="Toy2">
+                <img src="Toy2.png" alt="Bally">
+                <p>Bally</p>
+            </div>
+            <div class="product-card" data-name="Cat Toy" data-description="A very unique feather toy the will keep you cat company for hours!" data-price="$20" data-image="t=Toy3.png">
+                <img src="Toy3.png" alt="Cat Toy">
+                <p>Cat Toy</p>
+            </div>
+            <div class="product-card" data-name="Feather Toy" data-description="A very fun TOY!" data-price="$30" data-image="Toy4.png">
+                <img src="Toy4.png" alt="Eastern Box Turtle">
+                <p>Feather Toy</p>
+            </div>
+            <div class="product-card" data-name="Moonlight Dress" data-description="A magestic color that reflects the moons reflection!" data-price="$25" data-image="c1">
+                <img src="c1.png" alt="Moonlight Dress">
+                <p>Moonlight Dress</p>
+            </div>
+            <div class="product-card" data-name="Go go Butler" data-description="A very cute butler for your dog with a cute purple ribbon to
+            replicate the Dogs cuteness!" data-price="$28" data-image="c2.png">
+                <img src="c2.png" alt="Spotted Turtle">
+                <p>Go Go Butler</p>
+            </div>
+            <div class="product-card" data-name="Cherry Red" data-description="A small, and redish color of cheerfulness!" data-price="$35" data-image="product5.jpg">
+                <img src="c3.png" alt="c3.png">   
+                <p>Cherry Red</p>
+            </div>
+            <div class="product-card" data-name="Snowy Snowy" data-description="A perfect outfit for your cat or dog" data-price="$40" data-image="c4.png">
+                <img src="c4.png" alt="Snowy Snowy">
+                <p>Snowy Snowy</p>
+            </div>
+            <div class="product-card" data-name="Dog Shampoo" data-description="A very bubbly shampoo for your Dogs!" data-price="$20" data-image="p1.png">
+                <img src="p1.png" alt="Dog Shampoo">
+                <p>Dog Shampoo</p>
+            </div>
+            <div class="product-card" data-name="Dog Cologne" data-description="Eliminates odors with a refreshing scent." data-price="$30" data-image="p2.png">
+                <img src="p2.png" alt="Dog Cologne">
+                <p>Dog Cologne</p>
+            </div>
+            <div class="product-card" data-name="Cat Perfume" data-description="A powdery scent for your feline friend." data-price="$25" data-image="p3.png">
+                <img src="p3.png" alt="Cat Perfume">
+                <p>Cat Perfume</p>
+            </div>
+        </section>
+
+
+        <section class="categories">
+            <h2>Product Categories</h2>
+            <div class="category-cards">
+              <div class="category-card" data-category="pet-fashion">
+                <img src="Pet-Fashion.jpg" alt="Pet Fashion">
+                <p>Pet Fashion</p>
+              </div>
+              <div class="category-card" data-category="pet-toys">
+                <img src="Pet-Toys.jpg" alt="Pet Toys">
+                <p>Pet Toys</p>
+              </div>
+              <div class="category-card" data-category="pet-foods">
+                <img src="Pet-Food.jpg" alt="Pet Foods">
+                <p>Pet Foods</p>
+              </div>
+              <div class="category-card" data-category="pet-care">
+                <img src="Pet-care.jpg" alt="Pet Care">
+                <p>Pet Care</p>
+              </div>
+            </div>
+          </section>
+          
+          
+          <div id="product-grid" style="display: none;">
+            <h2 id="category-name"></h2>
+            <div class="product-cards">
+              
+            </div>
+          </div>
+          
+   
+          <div id="overlay" class="overlay" style="display: none;">
+            <div class="overlay-content">
+              <h3>Choose Options</h3>
+              <label for="size">Size:</label>
+              <select id="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+              </select>
+          
+              <label for="color">Color:</label>
+              <select id="color">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+              </select>
+          
+              <button id="confirm-options">Confirm</button>
+              <button id="close-overlay">Cancel</button>
+            </div>
+          </div>
+          
+
+
+<div class="category-floating-card">
+    <div class="close-category-card" id="close-category-card">X</div>
+    <h2 id="category-title"></h2>
+    <div class="category-products">
+
+    </div>
+</div>
+
+<!-- Overlay -->
+<div class="overlay"></div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pet Haven - All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
